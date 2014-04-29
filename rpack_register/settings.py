@@ -1,3 +1,8 @@
+# importing mongoengine
+
+from mongoengine import connect
+connect("rpack_register");
+
 # Django settings for rpack_register project.
 
 DEBUG = True
@@ -120,6 +125,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registry',
+    'django_extensions'
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
