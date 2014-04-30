@@ -19,11 +19,7 @@ python manage.py runserver
 
 ### Setting database
 
-Using MongoDB, after installing mongoDB enter command 
-
-```
-sudo mongod # to start up your database
-```
+Using sqlite3
 
 ## License
 
@@ -32,6 +28,6 @@ MIT
 
 ## Reference
 
-- http://docs.mongoengine.org/django.html
-- http://www.linuxjournal.com/content/using-django-and-mongodb-build-blog?page=0,0
-- http://mongoengine.org/#help-wanted
+Tutorial:
+
+- https://docs.djangoproject.com/en/1.6/intro/tutorial01/
