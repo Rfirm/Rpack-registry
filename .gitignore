@@ -1,1 +1,10 @@
-*.py?
+db.sqlite3
+rpack_register/__init__.pyc
+rpack_register/settings.pyc
+rpack_register/urls.pyc
+rpack_register/wsgi.pyc
+registry/__init__.pyc
+registry/models.pyc
+registry/serializers.pyc
+registry/urls.pyc
+registry/views.pyc
