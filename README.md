@@ -1,18 +1,16 @@
+#Rpack-registry
+Manage account.
 
-## Create a project using django
+##Document
+First you have to install the django and django-rest-framework
 
-```
-python /usr/local/lib/python2.7/site-packages/django/bin/django-admin.py startproject rpack_register
-```
+Create database
 
-## Create database
+    python manage.py syncdb
 
-```
-python manage.py syncdb
-```
+Start server
 
-### Start server
+    python manage.py runserver
 
-```
-python manage.py runserver
-```
+##License
+MIT by Rfirm
