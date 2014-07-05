@@ -165,5 +165,6 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static/javascripts/')
 BOWER_INSTALLED_APPS = (
     'jquery#1.9',
     'requirejs',
-    'marionette'
+    'marionette',
+    'gulp'
 )
