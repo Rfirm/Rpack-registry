@@ -83,6 +83,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -122,10 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'djangobower',# bower
     'rest_framework',
     'registry',
     'index',
@@ -161,3 +159,11 @@ LOGGING = {
         },
     }
 }
+
+# bower install app
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static/javascripts/')
+BOWER_INSTALLED_APPS = (
+    'jquery#1.9',
+    'requirejs',
+    'marionette'
+)

@@ -8,3 +8,4 @@ registry/models.pyc
 registry/serializers.pyc
 registry/urls.pyc
 registry/views.pyc
+static/javascripts/bower_components
