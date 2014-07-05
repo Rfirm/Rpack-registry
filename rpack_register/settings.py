@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangobower',# bower
+    'require', # require js
     'rest_framework',
     'registry',
     'index',
@@ -166,5 +167,6 @@ BOWER_INSTALLED_APPS = (
     'jquery#1.9',
     'requirejs',
     'marionette',
+    'backbone.marionette.handlebars',
     'gulp'
 )
