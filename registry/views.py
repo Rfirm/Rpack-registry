@@ -5,10 +5,6 @@ from registry.serializers import RegistrySerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.http import HttpResponse
-
-def index(request):
-    return HttpResponse('<a href="/rango/about">hi</a>')
 
 class SignUp(APIView):
     #Create a new account

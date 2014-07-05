@@ -6,7 +6,6 @@ from registry import views
 urlpatterns = patterns('',
 	url(r'^signup/$', views.SignUp.as_view()),
     url(r'^users/(?P<userId>[0-9]+/$)', views.RegistryDetail.as_view()),
-    url(r'^$', views.index, name='index'),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)
