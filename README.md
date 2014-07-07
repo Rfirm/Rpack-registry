@@ -13,4 +13,4 @@ Start server
     python manage.py runserver
 
 ##License
-MIT by Rfirm
+Apache 2.0 by Rfirm
