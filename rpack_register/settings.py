@@ -127,7 +127,7 @@ INSTALLED_APPS = (
     'require', # require js
     'rest_framework',
     'registry',
-    'index',
+    'pages',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

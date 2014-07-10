@@ -2,21 +2,13 @@
 Manage account.
 
 ##Document
-###install package
-1. django bower
+###install django package
 
-Install `bower` from `npm`
+    pip install -r django-pkg.txt
 
-    npm install -g bower
+###bower install
 
-Then install `django-bower` package
-
-    pip install django-bower
-
-2. Install django require
-
-    pip install django-require
-
+    python manage.py bower install
 ###start the django
 First you have to install the django and django-rest-framework
 
@@ -27,8 +19,6 @@ Create database
 Start server
 
     python manage.py runserver
-
-
 
 ##License
 MIT by Rfirm
