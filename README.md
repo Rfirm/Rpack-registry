@@ -12,6 +12,11 @@ Install `bower` from `npm`
 Then install `django-bower` package
 
     pip install django-bower
+
+2. Install django require
+
+    pip install django-require
+
 ###start the django
 First you have to install the django and django-rest-framework
 

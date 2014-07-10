@@ -4,7 +4,9 @@ from index import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', views.index, name="index"),
+    # url(r'^$', views.index, name="index"),
+    url(r'^$', 'index.views.index'),
+
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)
