@@ -5,6 +5,6 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^', include('pages.urls')),
     url(r'^', include('registry.urls')),
-    url(r'^', include('index.urls')),
 )
