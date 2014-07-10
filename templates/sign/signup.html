@@ -1,8 +1,6 @@
 {%extends "layout/sign.html"%}
-
+{% block title %} | Sign up{% endblock %}
 {% block content %}
-<h1>This is index</h1>
-<button><a href="/signup">Sign up</a></button>
 <form action="/signup/" method="post">
     account:<input name="account" type="text">
     password:<input name="password" type="text">

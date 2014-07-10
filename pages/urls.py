@@ -5,6 +5,7 @@ from pages import views
 
 urlpatterns = patterns('',
     url(r'^$', 'pages.views.index'),
+    url(r'^signup/', 'pages.views.signup'),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)
