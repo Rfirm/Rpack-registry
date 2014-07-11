@@ -32,8 +32,9 @@ def users(request):
 @csrf_exempt
 def detail(request, user_name):
     if request.method == 'GET' :
-        accountTmp = get_object_or_404(Account, pk = user_name)
+        accountTmp = get_object_or_404(Account, username = user_name)
         response_data = {}
+        response_data['_id'] = accountTmp._id
         response_data['username'] = accountTmp.username
         response_data['email'] = accountTmp.email
         return HttpResponse(json.dumps(response_data), status = 200)
