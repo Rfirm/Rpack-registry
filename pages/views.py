@@ -7,5 +7,6 @@ def index(request):
     return render_to_response('index/not_auth.html')
 
 def signup(request):
-    return render_to_response('sign/signup.html')
+    return render_to_response('sign/signup.html',
+    context_instance=RequestContext(request))
 

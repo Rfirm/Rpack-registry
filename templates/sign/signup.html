@@ -2,9 +2,22 @@
 {% block title %} | Sign up{% endblock %}
 {% block content %}
 <form action="/signup/" method="post">
-    account:<input name="account" type="text">
-    password:<input name="password" type="text">
-    email:<input name="email" type="text">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Sign Up</legend>
+        <div>
+            <label for="account">Username: *</label>
+            <input name="account" type="text" aria-describedby="username-format"  pattern="[A-Za-z-0-9]+" required aria-required=”true” title="only contain lowercase letters and nubmer">
+        </div>
+        <div>
+            <label for="password">Password: *</label>
+            <input name="password" type="password" required aria-required=”true”>
+        </div>
+        <div>
+            <label for="email">Email: *</label>
+            <input name="email" type="email" required aria-required=”true”>
+        </div>
+    </fieldset>
     <input type="submit" name="submit" value="signup">
 </form>
 {% endblock %}
