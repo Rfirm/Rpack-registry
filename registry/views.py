@@ -2,6 +2,8 @@
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from registry.models import Account
+from django.shortcuts import get_object_or_404
+import json
 
 @csrf_exempt
 def users(request):
@@ -18,3 +20,15 @@ def users(request):
         else:
             return HttpResponse(status = 200)
 
+def detail(request, user_name):
+    if request.method == 'GET':
+        accountFilter = Account.objects.filter(pk = user_name)
+        if accountFilter.count() > 0:
+            response_data = {}
+            response_data['username'] = accountFilter[0].username
+            response_data['email'] = accountFilter[0].email
+            return HttpResponse(json.dumps(response_data), status = 200)
+        else :
+            return HttpResponse(status = 404)
+    else:
+        return HttpResponse(status = 404)
