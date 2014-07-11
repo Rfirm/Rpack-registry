@@ -2,7 +2,7 @@
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from registry.models import Account
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 import json
 import uuid
 
@@ -37,7 +37,7 @@ def detail(request, user_name):
         response_data['_id'] = accountTmp._id
         response_data['username'] = accountTmp.username
         response_data['email'] = accountTmp.email
-        return HttpResponse(json.dumps(response_data), status = 200)
+        return render(request, 'users/users.html', json.dumps(response_data), status = 200)
     else :
         return HttpResponse(status = 404)
 
