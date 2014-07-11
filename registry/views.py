@@ -1,29 +1,20 @@
 # Create your views here.
-from django.http import Http404
-from registry.models import Registry
-from registry.serializers import RegistrySerializer
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from registry.models import Account
 
-class SignUp(APIView):
-    #Create a new account
-    def post(self, request, format=None):
-        serializer = RegistrySerializer(data = request.DATA)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status = status.HTTP_200_OK)
-        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+@csrf_exempt
+def users(request):
+    accountFilter = Account.objects.filter(pk = request.POST['username'])
 
-class RegistryDetail(APIView):
-    #Retrieve a registry instance
-    def get_object(self, userId):
+    if accountFilter.count() > 0 :
+        return HttpResponse(status = 404)
+    else:
         try:
-            return Registry.objects.get(userId=userId)
-        except Registry.DoesNotExist:
-            raise Http404
+            accountTmp = Account(username = request.POST['username'], password = request.POST['password'], email = request.POST['email'])
+            accountTmp.save()
+        except:
+            return HttpResponse(status = 404)
+        else:
+            return HttpResponse(status = 200)
 
-    def get(self, request, userId, format=None):
-        registry = self.get_object(userId)
-        serializer = RegistrySerializer(registry)
-        return Response(serializer.data)
