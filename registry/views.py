@@ -20,15 +20,13 @@ def users(request):
         else:
             return HttpResponse(status = 200)
 
+@csrf_exempt
 def detail(request, user_name):
-    if request.method == 'GET':
-        accountFilter = Account.objects.filter(pk = user_name)
-        if accountFilter.count() > 0:
-            response_data = {}
-            response_data['username'] = accountFilter[0].username
-            response_data['email'] = accountFilter[0].email
-            return HttpResponse(json.dumps(response_data), status = 200)
-        else :
-            return HttpResponse(status = 404)
-    else:
+    if request.method == 'GET' :
+        accountTmp = get_object_or_404(Account, pk = user_name)
+        response_data = {}
+        response_data['username'] = accountTmp.username
+        response_data['email'] = accountTmp.email
+        return HttpResponse(json.dumps(response_data), status = 200)
+    else :
         return HttpResponse(status = 404)
