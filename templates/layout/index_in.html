@@ -12,5 +12,9 @@
 <script data-main="/static/javascripts/index", src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.4/require.min.js'></script>
 </head>
 <body>
+    {% include "header/header_in.html"%}
+    {% block content %} {% endblock %}
+    {% include "footer/footer_in.html"%}
+
 </body>
 </html>
