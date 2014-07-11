@@ -125,7 +125,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'djangobower',# bower
     'require', # require js
-    'rest_framework',
     'registry',
     'pages',
 )
