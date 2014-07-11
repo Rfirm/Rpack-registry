@@ -8,13 +8,13 @@ def users(request):
     accountFilter = Account.objects.filter(pk = request.POST['username'])
 
     if accountFilter.count() > 0 :
-        return HttpResponse(status = 404)
+        return HttpResponse("There is same username in database",status = 404)
     else:
         try:
             accountTmp = Account(username = request.POST['username'], password = request.POST['password'], email = request.POST['email'])
             accountTmp.save()
         except:
-            return HttpResponse(status = 404)
+            return HttpResponse("Something error!", status = 404)
         else:
             return HttpResponse(status = 200)
 
