@@ -1,13 +1,13 @@
 {%extends "layout/sign.html"%}
 {% block title %} | Sign up{% endblock %}
 {% block content %}
-<form action="/signup/" method="post">
+<form action="/users/" method="post">
     {% csrf_token %}
     <fieldset>
         <legend>Sign Up</legend>
         <div>
-            <label for="account">Username: *</label>
-            <input name="account" type="text" aria-describedby="username-format"  pattern="[A-Za-z-0-9]+" required aria-required=”true” title="only contain lowercase letters and nubmer">
+            <label for="username">Username: *</label>
+            <input name="username" type="text" aria-describedby="username-format"  pattern="[A-Za-z-0-9]+" required aria-required=”true” title="only contain lowercase letters and nubmer">
         </div>
         <div>
             <label for="password">Password: *</label>
