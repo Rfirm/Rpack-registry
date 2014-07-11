@@ -56,3 +56,37 @@ def signin(request):
         response_data['status'] = "error"
         response_data['message'] = "password error!"
         return HttpResponse(json.dumps(response_data), status = 400)
+
+@csrf_exempt
+def logout(request):
+    if request.method == 'GET' :
+        try :
+            del request.session['account_id']
+        except :
+            response_data = {}
+            response_data['status'] = "error"
+            response_data['message'] = "No such session."
+            return HttpResponse(json.dumps(response_data), status = 400)
+        else :
+            return HttpResponse(status = 200)
+    else :
+        return HttpResponse(status = 400)
+
+@csrf_exempt
+def myDetail(request):
+    if request.method == 'GET' :
+        try :
+            accountTmp = Account.objects.get(_id = request.session['account_id'])
+            response_data = {}
+            response_data['_id'] = accountTmp._id
+            response_data['username'] = accountTmp.username
+            response_data['email'] = accountTmp.email
+        except :
+            response_data = {}
+            response_data['status'] = "error"
+            response_data['message'] = "No such session."
+            return HttpResponse(json.dumps(response_data), status = 400)
+        else :
+            return HttpResponse(json.dumps(response_data), status = 200)
+    else :
+        return HttpResponse(status = 400)
