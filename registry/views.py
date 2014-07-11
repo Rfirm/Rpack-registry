@@ -1,29 +1,42 @@
 # Create your views here.
-from django.http import Http404
-from registry.models import Registry
-from registry.serializers import RegistrySerializer
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from registry.models import Account
+from django.shortcuts import get_object_or_404
+import json
+import uuid
 
-class SignUp(APIView):
-    #Create a new account
-    def post(self, request, format=None):
-        serializer = RegistrySerializer(data = request.DATA)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status = status.HTTP_200_OK)
-        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+@csrf_exempt
+def users(request):
+    #Create new account
+    accountFilter = Account.objects.filter(username = request.POST['username'])
 
-class RegistryDetail(APIView):
-    #Retrieve a registry instance
-    def get_object(self, userId):
+    if accountFilter.count() > 0 :
+        response_data = {}
+        response_data['status'] = "error"
+        response_data['message'] = "The username have been registered."
+        return HttpResponse(json.dumps(response_data), status = 200)
+    else:
         try:
-            return Registry.objects.get(userId=userId)
-        except Registry.DoesNotExist:
-            raise Http404
+            uuidTmp = uuid.uuid1()
+            accountTmp = Account(_id = str(uuidTmp), username = request.POST['username'], password = request.POST['password'], email = request.POST['email'])
+            accountTmp.save()
+        except:
+            response_data = {}
+            response_data['status'] = "error"
+            response_data['message'] = "Something error!"
+            return HttpResponse(json.dumps(response_data), status = 400)
+        else:
+            return HttpResponse(status = 200)
 
-    def get(self, request, userId, format=None):
-        registry = self.get_object(userId)
-        serializer = RegistrySerializer(registry)
-        return Response(serializer.data)
+@csrf_exempt
+def detail(request, user_name):
+    if request.method == 'GET' :
+        accountTmp = get_object_or_404(Account, username = user_name)
+        response_data = {}
+        response_data['_id'] = accountTmp._id
+        response_data['username'] = accountTmp.username
+        response_data['email'] = accountTmp.email
+        return HttpResponse(json.dumps(response_data), status = 200)
+    else :
+        return HttpResponse(status = 404)
