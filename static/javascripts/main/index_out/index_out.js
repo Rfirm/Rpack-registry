@@ -5,7 +5,6 @@ require(["./config"], function(config) {
     'backbone',
     'marionette',
     'underscore',
-    '/static/javascripts/views/index/test.js',
     ], function ($, Backbone, Marionette, _){
 
     });
