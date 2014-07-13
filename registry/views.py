@@ -34,11 +34,11 @@ def detail(request, user_name):
     if request.method == 'GET' :
         accountTmp = get_object_or_404(Account, username = user_name)
         response_data = {}
-        response_data['_id'] = accountTmp._id
+        # response_data['_id'] = accountTmp._id
         response_data['username'] = accountTmp.username
         response_data['email'] = accountTmp.email
-        # return render(request, 'users/users.html', json.dumps(response_data), status = 200)
-        return render(request, 'users/users.html', {"tags":"hi"}, status = 200)
+        return render(request, 'users/users.html', json.dumps(response_data), status = 200)
+        # return render(request, 'users/users.html', {"tags":"hi"}, status = 200)
     else :
         return HttpResponse(status = 404)
 

@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link href="{% static 'stylesheets/index_out/index.css'%}" rel="stylesheet">
-<script data-main="/static/javascripts/index", src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.4/require.min.js'></script>
+{% block head %} {% endblock %}
 </head>
 <body>
     {% include "header/header_in.html"%}

@@ -1,8 +1,11 @@
-{%extends "layout/sign.html"%}
+{%extends "layout/index_in.html"%}
+{% block head %}
+<script data-main="/static/javascripts/main/index/user", src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.4/require.min.js'></script>
+{% endblock %}
 
 {% block content %}
     <div id="user_area">
         hi
     </div>
-    <h1>render by json: {{tags}}</h1>
+    <h1>render by json: {{email}}</h1>
 {% endblock %}
