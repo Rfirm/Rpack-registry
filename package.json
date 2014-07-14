@@ -1,0 +1,27 @@
+{
+  "name": "Rpack-registry",
+  "version": "0.0.0",
+  "description": "rpack registry",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rfirm/Rpack-registry.git"
+  },
+  "keywords": [
+    "rpack"
+  ],
+  "author": "chilijung <chilijung@gmail.com> (http://lijung.com/)",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/Rfirm/Rpack-registry/issues"
+  },
+  "homepage": "https://github.com/Rfirm/Rpack-registry",
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-less": "^1.3.1",
+    "stream-combiner": "^0.2.1"
+  }
+}

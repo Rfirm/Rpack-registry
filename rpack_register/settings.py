@@ -166,6 +166,5 @@ BOWER_INSTALLED_APPS = (
     'jquery#1.9',
     'requirejs',
     'marionette',
-    'backbone.marionette.handlebars',
-    'gulp'
+    'backbone.marionette.handlebars'
 )

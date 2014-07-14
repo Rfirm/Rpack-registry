@@ -20,5 +20,30 @@ Start server
 
     python manage.py runserver
 
+### Gulp for build
+
+#### prerequisite
+
+Install nodejs, npm
+
+```
+sudo npm install -g gulp
+```
+
+and 
+
+```
+npm install
+```
+
+After install all necessaries enter
+
+```
+gulp # build less to css
+```
+
+**NOTE:** css stylesheets should not code in `static/stylesheets/`, code in `static/less` and gulp will compile to css for you.
+
+
 ##License
 Apache 2.0 by Rfirm
