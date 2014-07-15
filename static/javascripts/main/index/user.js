@@ -7,6 +7,9 @@ require(["./config"], function(config) {
     'underscore',
     ], function ($, Backbone, Marionette, _){
         var User = new Marionette.Application();
+        User.addRegions({
+            mainRegion: '#user_area'
+        })
         // User.on("initialize:after", function(){
         //     console.log("hi");
         // });
