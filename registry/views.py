@@ -13,21 +13,23 @@ def users(request) :
         accountFilter = Account.objects.filter(username = request.POST['username'])
 
         if accountFilter.count() > 0 : # if username have been registered before
-            response_data = {}
-            response_data['status'] = "error"
-            response_data['message'] = "The username have been registered."
-            return HttpResponse(json.dumps(response_data), status = 200)
+            #response_data = {}
+            #response_data['status'] = "error"
+            #response_data['message'] = "The username have been registered."
+            #return HttpResponse(json.dumps(response_data), status = 200)
+            return render(request, 'sign/signup.html', {"status": "error", "message": "The username have been registered."}, status = 200)
         else :
             try :
                 uuidTmp = uuid.uuid1()
                 accountTmp = Account(_id = str(uuidTmp), username = request.POST['username'], password = request.POST['password'], email = request.POST['email'])
                 accountTmp.save()
             except : # Some other error
-                response_data = {}
-                response_data['status'] = "error"
-                response_data['message'] = "Something error!"
-                return HttpResponse(json.dumps(response_data), status = 400)
-            else:
+                #response_data = {}
+                #response_data['status'] = "error"
+                #response_data['message'] = "Something error!"
+                #return HttpResponse(json.dumps(response_data), status = 400)
+                return render(request, 'sign/signup.html', {"status": "error", "message": "Something error!"}, status = 400)
+            else :
                 return HttpResponse(status = 200)
     else :
         return HttpResponse(status = 400)
